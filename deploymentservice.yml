@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nodeapp-deployment
+  namespace: mynodeapp
   labels:
     app: nodeapp
 spec:
@@ -16,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nodeserver
-        image: thetips4you/nodeapp:latest
+        image: sabarigirishpb/nodeapp
         ports:
         - containerPort: 9000
         
@@ -27,6 +28,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nodeapp-service
+  namespace: mynodeapp
 spec:
   selector:
     app: nodeapp 
